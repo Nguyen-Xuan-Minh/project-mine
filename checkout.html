@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Fauget Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/checkout.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <span>Ăn là ghiền - mua là mê</span>
+        <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/fauget.png" alt="Fauget Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="auth-buttons">
+            <a href="register.html" class="btn-register">Đăng ký</a>
+            <a href="login.html">Đăng nhập</a>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="combo.html">Combo</a></li>
+            <li><a href="introduce.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+        <div class="cart-icon">
+            <a href="cart.html" style="color: inherit; position: relative;">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-badge" style="position: absolute; top: -10px; right: -15px; background: #da291c; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; font-weight: bold; display: none;">0</span>
+            </a>
+        </div>    </nav>
+
+    <section class="checkout-section">
+        <div class="checkout-header">
+            <i class="fa-solid fa-money-check-dollar"></i>
+            <h2>Thanh toán</h2>
+        </div>
+
+        <form action="#" method="POST" id="checkoutForm">
+            <div class="checkout-layout">
+                
+                <div class="checkout-left">
+                    <div class="checkout-box">
+                        <h3>1. THÔNG TIN GIAO HÀNG</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullname">Họ và tên <span>*</span></label>
+                                <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên người nhận" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại <span>*</span></label>
+                                <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Địa chỉ giao hàng <span>*</span></label>
+                            <input type="text" id="address" name="address" placeholder="Nhập số nhà, tên đường, phường/xã, quận/huyện..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Ghi chú cho quán (Tùy chọn)</label>
+                            <textarea id="notes" name="notes" placeholder="VD: Giao giờ hành chính, gọi trước khi giao, không cho hành..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="checkout-box">
+                        <h3>2. PHƯƠNG THỨC THANH TOÁN</h3>
+                        <div class="payment-method">
+                            <label class="payment-label" for="cod">
+                                <input type="radio" name="payment" id="cod" value="COD" checked>
+                                <i class="fa-solid fa-hand-holding-dollar" style="color: #27ae60;"></i>
+                                Thanh toán bằng tiền mặt khi nhận hàng (COD)
+                            </label>
+                        </div>
+                        <div class="payment-method">
+                            <label class="payment-label" for="banking">
+                                <input type="radio" name="payment" id="banking" value="BANKING">
+                                <i class="fa-solid fa-building-columns" style="color: #2980b9;"></i>
+                                Chuyển khoản ngân hàng (Mã QR)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-summary">
+                    <h3>ĐƠN HÀNG CỦA BẠN</h3>
+                    
+                    <div id="checkout-order-items">
+                        </div>
+
+                    <div class="summary-row" style="margin-top: 20px;">
+                        <span>Tạm tính:</span>
+                        <span id="checkout-subtotal">0đ</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Phí giao hàng:</span>
+                        <span id="checkout-shipping">15.000đ</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>TỔNG CỘNG:</span>
+                        <span id="checkout-total">0đ</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Đặt hàng ngay</button>
+                </div>
+
+            </div>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/fauget.png" alt="Fauget Logo">
+                <p>Đồ ăn nhanh chất lượng, giao hàng tận nơi.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Liên hệ</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot" style="color: #c0392b;"></i> 123 Đường ABC, Hà Đông, TP.Hà Nội</li>
+                    <li><i class="fa-solid fa-phone"></i> 0123 456 789</li>
+                    <li><i class="fa-solid fa-envelope"></i> hello@fastfood.com</li>
+                </ul>
+            </div>
+            <div class="footer-hours">
+                <h4>Giờ mở cửa</h4>
+                <p>Thứ 2 - Chủ nhật</p>
+                <p>8:00 - 22:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Fauget. All rights reserved.
+        </div>
+    </footer>
+</div>
+
+<script>
+    // 1. TỰ ĐỘNG LẤY GIỎ HÀNG VÀ TÍNH TIỀN
+    function loadCheckoutCart() {
+        // Lấy giỏ hàng nhờ hàm getCart() bên app.js
+        const cart = getCart(); 
+        const orderItemsContainer = document.getElementById('checkout-order-items');
+        const subtotalElement = document.getElementById('checkout-subtotal');
+        const totalElement = document.getElementById('checkout-total');
+        
+        // Nếu giỏ hàng trống
+        if (cart.length === 0) {
+            orderItemsContainer.innerHTML = '<p style="text-align:center; color:#888;">Giỏ hàng của bạn đang trống!</p>';
+            subtotalElement.textContent = '0đ';
+            totalElement.textContent = '0đ';
+            return;
+        }
+
+        let subtotal = 0;
+        orderItemsContainer.innerHTML = ''; // Xóa rỗng để chuẩn bị điền món mới
+
+        // Vòng lặp in từng món ra
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+
+            orderItemsContainer.innerHTML += `
+                <div class="order-item">
+                    <span class="order-item-name">${item.name}</span>
+                    <span class="order-item-qty">x ${item.quantity}</span>
+                    <span class="order-item-price">${formatPrice(itemTotal)}</span>
+                </div>
+            `;
+        });
+
+        // Tính phí ship (Mặc định 15k) và Tổng cộng
+        const shippingFee = 15000;
+        const finalTotal = subtotal + shippingFee;
+
+        // In giá tiền ra màn hình
+        subtotalElement.textContent = formatPrice(subtotal);
+        totalElement.textContent = formatPrice(finalTotal);
+    }
+
+    // Chạy hàm ngay khi tải trang xong
+    window.addEventListener('DOMContentLoaded', loadCheckoutCart);
+
+    // 2. XỬ LÝ SỰ KIỆN KHI BẤM NÚT ĐẶT HÀNG
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        const cart = getCart();
+        if(cart.length === 0) {
+            alert("Giỏ hàng trống trơn kìa bạn ơi! Ra Menu chọn món đã nhé.");
+            window.location.href = 'menu.html';
+            return;
+        }
+
+        const name = document.getElementById('fullname').value;
+        const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+        if (paymentMethod === 'BANKING') {
+            alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận.\nVui lòng quét mã QR chuyển khoản ở bước tiếp theo.`);
+            // Sau này làm trang QR thì đổi link ở đây
+        } else {
+            alert(`Cảm ơn ${name}! Đặt hàng thành công.\nChúng tôi sẽ gọi xác nhận và giao hàng cho bạn.`);
+            
+            // QUAN TRỌNG: Xóa sạch giỏ hàng sau khi đặt mua xong
+            localStorage.removeItem('fauget_cart');
+            
+            window.location.href = 'index.html'; 
+        }
+    });
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

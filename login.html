@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Fauget Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <span>Ăn là ghiền - mua là mê</span>
+        <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/fauget.png" alt="Fauget Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="auth-buttons">
+            <a href="register.html" class="btn-register">Đăng ký</a>
+            <a href="login.html">Đăng nhập</a>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="combo.html">Combo</a></li>
+            <li><a href="introduce.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+        <div class="cart-icon">
+            <a href="cart.html" style="color: inherit; position: relative;">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-badge" style="position: absolute; top: -10px; right: -15px; background: #da291c; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; font-weight: bold; display: none;">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="login-section">
+        <div class="login-box">
+            <div class="login-logo">
+                <img src="assets/images/fauget.png" alt="Fauget Logo">
+            </div>
+            <h2>ĐĂNG NHẬP</h2>
+            
+            <form action="#" method="POST" id="loginForm">
+                <div class="form-group">
+                    <label>TÊN ĐĂNG NHẬP</label>
+                    <input type="email" name="email" required placeholder="Nhập email...">
+                </div>
+                <div class="form-group">
+                    <label>MẬT KHẨU</label>
+                    <input type="password" name="password" required placeholder="Nhập mật khẩu...">
+                </div>
+                <button type="submit" class="btn-login-submit">ĐĂNG NHẬP</button>
+            </form>
+
+            <div class="register-link">
+                Chưa có tài khoản? <a href="register.html">Đăng kí ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/fauget.png" alt="Fauget Logo">
+                <p>Đồ ăn nhanh chất lượng, giao hàng tận nơi.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Liên hệ</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot" style="color: #c0392b;"></i> 123 Đường ABC, Hà Đông, TP.Hà Nội</li>
+                    <li><i class="fa-solid fa-phone"></i> 0123 456 789</li>
+                    <li><i class="fa-solid fa-envelope"></i> hello@fastfood.com</li>
+                </ul>
+            </div>
+            <div class="footer-hours">
+                <h4>Giờ mở cửa</h4>
+                <p>Thứ 2 - Chủ nhật</p>
+                <p>8:00 - 22:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Fauget. All rights reserved.
+        </div>
+    </footer>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Ngăn form reload lại trang
+        const email = document.querySelector('input[name="email"]').value;
+        
+        // Hiển thị thông báo đăng nhập thành công giả lập
+        alert(`Đăng nhập thành công với tài khoản: ${email}\nChào mừng bạn trở lại với Fauget!`);
+        
+        // Chuyển hướng về trang chủ
+        window.location.href = 'index.html';
+    });
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

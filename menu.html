@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Fauget Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/menu.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <span>Ăn là ghiền - mua là mê</span>
+        <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/fauget.png" alt="Fauget Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="auth-buttons">
+            <a href="register.html" class="btn-register">Đăng ký</a>
+            <a href="login.html">Đăng nhập</a>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="menu.html" style="color: #fff; text-decoration: underline;">Menu</a></li>
+            <li><a href="combo.html">Combo</a></li>
+            <li><a href="introduce.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+        <div class="cart-icon">
+            <a href="cart.html" style="color: inherit; position: relative;">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-badge" style="position: absolute; top: -10px; right: -15px; background: #da291c; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; font-weight: bold; display: none;">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="menu-header-container">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2v20M8 12h8"></path>
+        </svg>
+        <h2>MENU</h2>
+    </div>
+
+    <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">Tất cả</button>
+        <button class="filter-btn" data-filter="burger">🍔 Burger</button>
+        <button class="filter-btn" data-filter="pizza">🍕 Pizza</button>
+        <button class="filter-btn" data-filter="chicken">🍗 Gà rán</button>
+        <button class="filter-btn" data-filter="drink">🥤 Đồ uống</button>
+        <button class="filter-btn" data-filter="snack">🍟 Đồ ăn vặt</button>
+    </div>
+
+    <section class="menu-grid" id="product-list">
+        
+        <div class="product-card" data-category="burger">
+            <img src="assets/images/cheese-burger.png" alt="Cheese Burger">
+            <h3>Cheese Burger</h3>
+            <p>Burger phô mai kép với thịt bò juicy và hành phi giòn</p>
+            <div class="price-row">
+                <span class="price">65.000đ</span>
+                <button class="add-btn" onclick="addToCart('b1')">+</button>
+            </div>
+        </div>
+        
+        <div class="product-card" data-category="burger">
+            <img src="assets/images/classic-burger.png" alt="Classic Burger">
+            <h3>Classic Burger</h3>
+            <p>Burger bò Úc với phô mai cheddar, rau xà lách tươi, cà chua và sốt đặc biệt</p>
+            <div class="price-row">
+                <span class="price">55.000đ</span>
+                <button class="add-btn" onclick="addToCart('b2')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="burger">
+            <img src="assets/images/chicken-burger.png" alt="Chicken Burger">
+            <h3>Chicken Burger</h3>
+            <p>Burger gà giòn với sốt mayo tự làm</p>
+            <div class="price-row">
+                <span class="price">50.000đ</span>
+                <button class="add-btn" onclick="addToCart('b3')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="pizza">
+            <img src="assets/images/pepperoni-pizza.png" alt="Pepperoni Pizza">
+            <h3>Pepperoni Pizza</h3>
+            <p>Pizza pepperoni truyền thống với phô mai mozzarella</p>
+            <div class="price-row">
+                <span class="price">120.000đ</span>
+                <button class="add-btn" onclick="addToCart('p1')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="pizza">
+            <img src="assets/images/hawaiian-pizza.png" alt="Hawaiian Pizza">
+            <h3>Hawaiian Pizza</h3>
+            <p>Pizza thơm dứa với giăm bông và phô mai</p>
+            <div class="price-row">
+                <span class="price">110.000đ</span>
+                <button class="add-btn" onclick="addToCart('p2')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="pizza">
+            <img src="assets/images/veggie-pizza.png" alt="Veggie Pizza">
+            <h3>Veggie Pizza</h3>
+            <p>Pizza rau củ với ớt chuông, nấm và olive</p>
+            <div class="price-row">
+                <span class="price">100.000đ</span>
+                <button class="add-btn" onclick="addToCart('p3')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="chicken">
+            <img src="assets/images/ga-2-mieng.png" alt="Gà Rán (2 miếng)">
+            <h3>Gà Rán (2 miếng)</h3>
+            <p>2 miếng gà rán giòn vàng thơm ngon</p>
+            <div class="price-row">
+                <span class="price">45.000đ</span>
+                <button class="add-btn" onclick="addToCart('c1')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="chicken">
+            <img src="assets/images/ga-4-mieng.png" alt="Gà Rán (4 miếng)">
+            <h3>Gà Rán (4 miếng)</h3>
+            <p>4 miếng gà rán, perfect để share</p>
+            <div class="price-row">
+                <span class="price">85.000đ</span>
+                <button class="add-btn" onclick="addToCart('c2')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="chicken">
+            <img src="assets/images/wings-bbq.png" alt="Wings BBQ (6 miếng)">
+            <h3>Wings BBQ (6 miếng)</h3>
+            <p>Cánh gà nướng BBQ vị đậm đà</p>
+            <div class="price-row">
+                <span class="price">60.000đ</span>
+                <button class="add-btn" onclick="addToCart('c3')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="drink">
+            <img src="assets/images/cocacola.png" alt="Coca Cola">
+            <h3>Coca Cola</h3>
+            <p>Coca Cola lon mát lạnh</p>
+            <div class="price-row">
+                <span class="price">20.000đ</span>
+                <button class="add-btn" onclick="addToCart('d1')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="drink">
+            <img src="assets/images/pepsi.png" alt="Pepsi">
+            <h3>Pepsi</h3>
+            <p>Pepsi lon mát lạnh</p>
+            <div class="price-row">
+                <span class="price">20.000đ</span>
+                <button class="add-btn" onclick="addToCart('d2')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="drink">
+            <img src="assets/images/tra-dao.png" alt="Trà Đào">
+            <h3>Trà Đào</h3>
+            <p>Trà đào cam sả vị thanh mát</p>
+            <div class="price-row">
+                <span class="price">35.000đ</span>
+                <button class="add-btn" onclick="addToCart('d3')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="snack">
+            <img src="assets/images/khoai-tay-chien.png" alt="Khoai Tây Chiên">
+            <h3>Khoai Tây Chiên</h3>
+            <p>Khoai tây chiên giòn rụm</p>
+            <div class="price-row">
+                <span class="price">30.000đ</span>
+                <button class="add-btn" onclick="addToCart('s1')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="snack">
+            <img src="assets/images/onion-rings.png" alt="Onion Rings">
+            <h3>Onion Rings</h3>
+            <p>Hành tây chiên giòn với sốt mayo</p>
+            <div class="price-row">
+                <span class="price">35.000đ</span>
+                <button class="add-btn" onclick="addToCart('s2')">+</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="snack">
+            <img src="assets/images/salad-caesar.png" alt="Salad Caesar">
+            <h3>Salad Caesar</h3>
+            <p>Salad Caesar với rau xanh và phô mai mozzarella</p>
+            <div class="price-row">
+                <span class="price">40.000đ</span>
+                <button class="add-btn" onclick="addToCart('s3')">+</button>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/fauget.png" alt="Fauget Logo">
+                <p>Đồ ăn nhanh chất lượng, giao hàng tận nơi.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Liên hệ</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot" style="color: #c0392b;"></i> 123 Đường ABC, Hà Đông, TP.Hà Nội</li>
+                    <li><i class="fa-solid fa-phone"></i> 0123 456 789</li>
+                    <li><i class="fa-solid fa-envelope"></i> hello@fastfood.com</li>
+                </ul>
+            </div>
+            <div class="footer-hours">
+                <h4>Giờ mở cửa</h4>
+                <p>Thứ 2 - Chủ nhật</p>
+                <p>8:00 - 22:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Fauget. All rights reserved.
+        </div>
+    </footer>
+</div>
+
+<script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    // Chỗ đổi tên thứ 1: đổi products thành productCards
+    const productCards = document.querySelectorAll('.product-card');
+
+    // 1. Tạo một hàm riêng để xử lý việc lọc sản phẩm
+    function filterProducts(filterValue) {
+        // Cập nhật màu sắc cho nút đang được chọn
+        filterBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.getAttribute('data-filter') === filterValue) {
+                btn.classList.add('active');
+            }
+        });
+
+        // Chỗ đổi tên thứ 2: đổi products thành productCards
+        productCards.forEach(product => {
+            if (filterValue === 'all') {
+                product.classList.remove('hidden');
+            } else {
+                if (product.getAttribute('data-category') === filterValue) {
+                    product.classList.remove('hidden');
+                } else {
+                    product.classList.add('hidden');
+                }
+            }
+        });
+    }
+
+    // 2. Lắng nghe sự kiện khi người dùng click trực tiếp vào các nút ở trang Menu
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filterValue = btn.getAttribute('data-filter');
+            filterProducts(filterValue);
+        });
+    });
+
+    // 3. TỰ ĐỘNG LỌC KHI TỪ TRANG CHỦ CHUYỂN SANG
+    window.addEventListener('DOMContentLoaded', () => {
+        // Lấy thông số từ thanh địa chỉ URL (ví dụ: ?category=pizza)
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryFromUrl = urlParams.get('category');
+        
+        // Nếu có thông số truyền sang, lập tức gọi hàm lọc
+        if (categoryFromUrl) {
+            filterProducts(categoryFromUrl);
+        }
+    });
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
