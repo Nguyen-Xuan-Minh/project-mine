@@ -28,7 +28,7 @@
         
         .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
         .logo img { height: 60px; }
-        .admin-profile { display: flex; align-items: center; }
+        .admin-profile { display: flex; align-items: center; gap: 10px;}
         .btn-profile { background-color: var(--primary-color); border: none; padding: 8px 20px; border-radius: 20px; font-weight: 800; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
 
         /* --- NAVBAR ADMIN --- */
@@ -44,10 +44,13 @@
         .page-title i { font-size: 36px; color: var(--text-dark); }
         .page-title h2 { font-size: 24px; font-weight: 900; text-transform: uppercase; }
 
-        .filter-section { display: flex; gap: 20px; margin-bottom: 30px; }
+        .filter-section { display: flex; gap: 20px; margin-bottom: 30px; align-items: center;}
         .search-box, .filter-box { flex: 1; background-color: var(--bg-light-yellow); border-radius: 25px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; }
         .search-box input, .filter-box select { flex: 1; border: none; background: transparent; outline: none; font-size: 15px; font-weight: 600; color: var(--text-dark); }
         .filter-box select { appearance: none; cursor: pointer; }
+        
+        .btn-add-product { background-color: #28a745; color: white; border: none; padding: 12px 25px; border-radius: 25px; font-weight: 800; font-size: 15px; cursor: pointer; transition: 0.2s; white-space: nowrap;}
+        .btn-add-product:hover { background-color: #218838; }
 
         /* Bảng Dữ liệu */
         .data-table { width: 100%; border-collapse: collapse; text-align: center; }
@@ -56,23 +59,21 @@
         .data-table td { font-weight: 600; font-size: 14px; }
         
         /* Hình ảnh trong bảng */
-        .product-img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
+        .product-img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; background-color: #fff;}
 
-        .status-badge { display: inline-block; padding: 6px 15px; border-radius: 20px; background-color: var(--bg-light-green); font-weight: 700; min-width: 100px; }
+        .status-badge { display: inline-block; padding: 6px 15px; border-radius: 20px; font-weight: 700; min-width: 100px; }
+        .status-in-stock { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .status-out-stock { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
         .action-btns { display: flex; flex-direction: column; gap: 8px; align-items: center; }
         .btn-action { border: none; padding: 6px 15px; border-radius: 15px; font-weight: 700; cursor: pointer; width: 80px; transition: 0.2s; }
-        .btn-edit { background-color: var(--bg-light-green); color: var(--text-dark); }
-        .btn-delete { background-color: var(--primary-color); color: var(--text-dark); }
+        .btn-edit { background-color: var(--primary-color); color: var(--text-dark); }
+        .btn-delete { background-color: #dc3545; color: white; }
         .btn-action:hover { filter: brightness(0.95); }
 
-        /* Phân trang */
-        .pagination { display: flex; justify-content: flex-end; align-items: center; gap: 15px; margin-top: 20px; font-weight: 800; color: #da291c; font-size: 16px;}
-        .pagination span { cursor: pointer; }
-        .pagination .active { text-decoration: underline; }
-
+        /* Modal */
         .modal-overlay {
-            display: none; /* Ẩn mặc định, dùng JS để bật */
+            display: none; 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.5); z-index: 1000;
             justify-content: center; align-items: center;
@@ -87,9 +88,9 @@
         .close-btn {
             position: absolute; top: 20px; right: 25px;
             font-size: 30px; cursor: pointer; color: var(--primary-color);
-            -webkit-text-stroke: 2px #333; /* Tạo viền đen cho dấu X */
+            -webkit-text-stroke: 2px #333; 
         }
-        .modal-content h3 { font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 25px; }
+        .modal-content h3 { font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 25px; text-align: center;}
         
         .form-group { margin-bottom: 15px; }
         .form-row { display: flex; gap: 20px; }
@@ -97,20 +98,14 @@
         .form-group label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; }
         .form-group input, .form-group textarea, .form-group select {
             width: 100%; padding: 12px 15px; border: none; border-radius: 20px;
-            font-size: 14px; outline: none; background-color: #fff; font-weight: 600;
+            font-size: 14px; outline: none; background-color: #fff; font-weight: 600; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
         }
         .form-group textarea { resize: vertical; min-height: 80px; }
 
-        .upload-section { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-weight: 700; font-size: 14px;}
-        .btn-upload { background-color: #ffb6c1; border: none; padding: 8px 20px; border-radius: 15px; font-weight: 800; cursor: pointer; }
-        
-        .status-toggle { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; font-weight: 800; font-size: 14px; text-transform: uppercase;}
-        .status-opt { display: flex; align-items: center; gap: 10px; }
-        .btn-status-green { background-color: #a8e6cf; border: none; padding: 6px 15px; border-radius: 15px; font-weight: 800; cursor: pointer; }
-        .btn-status-red { background-color: #ff8b94; border: none; padding: 6px 15px; border-radius: 15px; font-weight: 800; cursor: pointer; }
-
-        .modal-actions { display: flex; justify-content: center; gap: 20px; }
-        .btn-modal { background-color: var(--primary-color); border: none; padding: 12px 30px; border-radius: 20px; font-weight: 900; font-size: 16px; cursor: pointer; text-transform: uppercase; }
+        .modal-actions { display: flex; justify-content: center; gap: 20px; margin-top: 20px;}
+        .btn-modal { border: none; padding: 12px 30px; border-radius: 20px; font-weight: 900; font-size: 16px; cursor: pointer; text-transform: uppercase; }
+        .btn-cancel { background-color: #ccc; color: #333; }
+        .btn-save { background-color: var(--primary-color); color: #333; }
         .btn-modal:hover { filter: brightness(0.95); }
 
         /* --- FOOTER --- */
@@ -138,10 +133,10 @@
 
     <header class="header">
         <div class="logo">
-            <a href="index.html"><img src="assets/images/Fauget.png" alt="Fauget Logo"></a>
+            <a href="../index.html"><img src="../assets/images/fauget.png" alt="Fauget Logo"></a>
         </div>
         <div class="admin-profile">
-            <button class="btn-profile"><i class="fa-solid fa-user-tie"></i> Xin chào!</button>
+            <button class="btn-profile" onclick="window.location.href='../index.html'"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
         </div>
     </header>
 
@@ -163,18 +158,19 @@
 
         <div class="filter-section">
             <div class="search-box">
-                <input type="text" placeholder="Tìm kiếm món ăn...">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm món ăn...">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <div class="filter-box">
                 <i class="fa-solid fa-filter"></i>
-                <select>
-                    <option value="">Lọc theo</option>
+                <select id="categoryFilter">
+                    <option value="all">Tất cả danh mục</option>
                     <option value="burger">Burger</option>
                     <option value="chicken">Gà rán</option>
                     <option value="drink">Đồ uống</option>
                 </select>
             </div>
+            <button class="btn-add-product" onclick="openModal()"><i class="fa-solid fa-plus"></i> Thêm món mới</button>
         </div>
 
         <table class="data-table">
@@ -182,102 +178,59 @@
                 <tr>
                     <th>Hình ảnh</th>
                     <th>Tên món</th>
+                    <th>Danh mục</th>
                     <th>Giá bán</th>
                     <th>Tình trạng</th>
                     <th>Thao tác</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td><img src="assets/images/classic burger.png" class="product-img" alt="Burger"></td>
-                    <td>Classic Burger</td>
-                    <td>55.000đ</td>
-                    <td><span class="status-badge">Còn hàng</span></td>
-                    <td class="action-btns">
-                        <button class="btn-action btn-edit" onclick="openModal()">Sửa</button>
-                        <button class="btn-action btn-delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="assets/images/gà 4 miếng.png" class="product-img" alt="Gà Rán"></td>
-                    <td>Gà Rán (4 miếng)</td>
-                    <td>85.000đ</td>
-                    <td><span class="status-badge">Hết hàng</span></td>
-                    <td class="action-btns">
-                        <button class="btn-action btn-edit" onclick="openModal()">Sửa</button>
-                        <button class="btn-action btn-delete">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="assets/images/cocacola.png" class="product-img" alt="Coca"></td>
-                    <td>Coca Cola</td>
-                    <td>20.000đ</td>
-                    <td><span class="status-badge">Còn hàng</span></td>
-                    <td class="action-btns">
-                        <button class="btn-action btn-edit" onclick="openModal()">Sửa</button>
-                        <button class="btn-action btn-delete">Xóa</button>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody id="productTableBody">
+                </tbody>
         </table>
-
-        <div class="pagination">
-            <span class="active">1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>Tiếp <i class="fa-solid fa-circle-arrow-right"></i></span>
-        </div>
     </div>
 
     <div id="productModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
-            <h3>THÊM MÓN ĂN MỚI</h3>
+            <h3 id="modalTitle">THÊM MÓN ĂN MỚI</h3>
             
             <div class="form-group">
                 <label>Tên món ăn</label>
-                <input type="text" placeholder="Nhập tên món...">
+                <input type="text" id="prodName" placeholder="Nhập tên món...">
             </div>
             
             <div class="form-row">
                 <div class="form-group">
                     <label>Danh mục</label>
-                    <select>
-                        <option>Chọn danh mục</option>
-                        <option>Burger</option>
-                        <option>Gà rán</option>
+                    <select id="prodCategory">
+                        <option value="">Chọn danh mục</option>
+                        <option value="burger">Burger</option>
+                        <option value="chicken">Gà rán</option>
+                        <option value="drink">Đồ uống</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Giá bán</label>
-                    <input type="text" placeholder="VNĐ">
+                    <label>Giá bán (VNĐ)</label>
+                    <input type="number" id="prodPrice" placeholder="Ví dụ: 55000">
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Mô tả món ăn</label>
-                <textarea placeholder="Nhập mô tả..."></textarea>
+                <label>Link hình ảnh (URL)</label>
+                <input type="text" id="prodImage" placeholder="Nhập đường dẫn ảnh (hoặc để trống dùng ảnh mặc định)">
             </div>
 
-            <div class="upload-section">
-                <label style="margin-bottom: 0; text-transform: uppercase;">Hình ảnh đại diện</label>
-                <button class="btn-upload">CHỌN</button>
-                <span>bấm để tải ảnh lên...</span>
-            </div>
-
-            <div class="status-toggle">
-                <label style="margin-bottom: 0;">Trạng thái</label>
-                <div class="status-opt">
-                    <button class="btn-status-green">CHỌN</button> Đang bán
-                </div>
-                <div class="status-opt">
-                    <button class="btn-status-red">CHỌN</button> Ngưng bán
-                </div>
+            <div class="form-group">
+                <label>Trạng thái</label>
+                <select id="prodStatus">
+                    <option value="Còn hàng">Đang bán (Còn hàng)</option>
+                    <option value="Hết hàng">Ngưng bán (Hết hàng)</option>
+                </select>
             </div>
 
             <div class="modal-actions">
-                <button class="btn-modal" onclick="closeModal()">HỦY BỎ</button>
-                <button class="btn-modal" onclick="closeModal()">LƯU DỮ LIỆU</button>
+                <button class="btn-modal btn-cancel" onclick="closeModal()">HỦY BỎ</button>
+                <button class="btn-modal btn-save" onclick="saveProduct()">LƯU DỮ LIỆU</button>
             </div>
         </div>
     </div>
@@ -285,7 +238,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="assets/images/Fauget.png" alt="Fauget Logo">
+                <img src="../assets/images/fauget.png" alt="Fauget Logo">
                 <p>Đồ ăn nhanh chất lượng, giao hàng tận nơi.</p>
             </div>
             <div class="footer-contact">
@@ -308,12 +261,139 @@
 </div>
 
 <script>
-    function openModal() {
-        document.getElementById("productModal").style.display = "flex";
+    // 1. Dữ liệu giả lập
+    let products = [
+        { id: 1, name: "Classic Burger", category: "burger", price: 55000, status: "Còn hàng", image: "../assets/images/classic-burger.png" },
+        { id: 2, name: "Gà Rán (4 miếng)", category: "chicken", price: 85000, status: "Hết hàng", image: "../assets/images/ga-4-mieng.png" },
+        { id: 3, name: "Coca Cola", category: "drink", price: 20000, status: "Còn hàng", image: "../assets/images/cocacola.png" }
+    ];
+    let editingId = null;
+
+    // 2. Hàm in danh sách món ăn ra bảng
+    function renderProducts(data) {
+        const tbody = document.getElementById('productTableBody');
+        tbody.innerHTML = ''; 
+
+        if(data.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="6" style="color: red;">Không tìm thấy món ăn nào!</td></tr>`;
+            return;
+        }
+
+        data.forEach(prod => {
+            let catName = prod.category === 'burger' ? 'Burger' : (prod.category === 'chicken' ? 'Gà rán' : 'Đồ uống');
+            
+            let statusClass = prod.status === 'Còn hàng' ? 'status-in-stock' : 'status-out-stock';
+
+            let row = `
+                <tr>
+                    <td><img src="${prod.image}" class="product-img" alt="${prod.name}"></td>
+                    <td style="font-weight: 800; color: #da291c;">${prod.name}</td>
+                    <td>${catName}</td>
+                    <td style="color: var(--primary-color); font-weight: 800;">${Number(prod.price).toLocaleString('vi-VN')}đ</td>
+                    <td><span class="status-badge ${statusClass}">${prod.status}</span></td>
+                    <td class="action-btns">
+                        <button class="btn-action btn-edit" onclick="openModal(${prod.id})"><i class="fa-solid fa-pen"></i> Sửa</button>
+                        <button class="btn-action btn-delete" onclick="deleteProduct(${prod.id})"><i class="fa-solid fa-trash"></i> Xóa</button>
+                    </td>
+                </tr>
+            `;
+            tbody.innerHTML += row;
+        });
     }
+
+    // 3. Mở Modal 
+    function openModal(id = null) {
+        document.getElementById("productModal").style.display = "flex";
+        
+        if (id) {
+            // Chế độ Sửa
+            editingId = id;
+            document.getElementById("modalTitle").innerText = "CẬP NHẬT MÓN ĂN";
+            let prod = products.find(p => p.id === id);
+            
+            // Đổ dữ liệu cũ vào form
+            document.getElementById("prodName").value = prod.name;
+            document.getElementById("prodCategory").value = prod.category;
+            document.getElementById("prodPrice").value = prod.price;
+            document.getElementById("prodImage").value = prod.image;
+            document.getElementById("prodStatus").value = prod.status;
+        } else {
+            // Chế độ Thêm mới (Xóa trắng form)
+            editingId = null;
+            document.getElementById("modalTitle").innerText = "THÊM MÓN ĂN MỚI";
+            document.getElementById("prodName").value = "";
+            document.getElementById("prodCategory").value = "";
+            document.getElementById("prodPrice").value = "";
+            document.getElementById("prodImage").value = "";
+            document.getElementById("prodStatus").value = "Còn hàng";
+        }
+    }
+
+    // 4. Đóng Modal
     function closeModal() {
         document.getElementById("productModal").style.display = "none";
     }
+
+    // 5. Lưu dữ liệu (Thêm mới hoặc Cập nhật)
+    function saveProduct() {
+        // Lấy dữ liệu từ form
+        let name = document.getElementById("prodName").value.trim();
+        let category = document.getElementById("prodCategory").value;
+        let price = document.getElementById("prodPrice").value;
+        let image = document.getElementById("prodImage").value.trim() || "https://via.placeholder.com/60/cccccc/000000?text=No+Image";
+        let status = document.getElementById("prodStatus").value;
+
+        // Validate cơ bản
+        if (!name || !category || !price) {
+            alert("Vui lòng nhập đầy đủ Tên, Danh mục và Giá bán!");
+            return;
+        }
+
+        if (editingId) {
+            // Cập nhật
+            let index = products.findIndex(p => p.id === editingId);
+            products[index] = { id: editingId, name, category, price, status, image };
+            alert("Cập nhật thành công!");
+        } else {
+            // Thêm mới (Tạo ID tự động)
+            let newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+            products.push({ id: newId, name, category, price, status, image });
+            alert("Thêm món ăn thành công!");
+        }
+
+        closeModal();
+        applyFilters(); // Render lại bảng
+    }
+
+    // 6. Xóa món ăn
+    function deleteProduct(id) {
+        if(confirm("Bạn có chắc chắn muốn xóa món này không?")) {
+            products = products.filter(p => p.id !== id);
+            applyFilters();
+        }
+    }
+
+    // 7. Lọc và Tìm kiếm
+    function applyFilters() {
+        let searchValue = document.getElementById('searchInput').value.toLowerCase();
+        let catValue = document.getElementById('categoryFilter').value;
+
+        let filteredList = products.filter(prod => {
+            let matchSearch = prod.name.toLowerCase().includes(searchValue);
+            let matchCategory = (catValue === 'all') || (prod.category === catValue);
+            return matchSearch && matchCategory;
+        });
+
+        renderProducts(filteredList);
+    }
+
+    // Lắng nghe sự kiện tìm kiếm và lọc
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+
+    // Render lần đầu khi tải trang
+    renderProducts(products);
+
 </script>
 
 </body>

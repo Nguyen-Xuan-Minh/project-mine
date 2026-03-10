@@ -72,6 +72,11 @@
             <div class="register-link">
                 Chưa có tài khoản? <a href="register.html">Đăng kí ngay</a>
             </div>
+            <div class="admin-link" style="margin-top: 15px; text-align: center; font-size: 14px;">
+                <a href="#" id="adminLoginBtn" style="color: #666; text-decoration: none; transition: 0.3s;">
+                    <i class="fa-solid fa-user-tie"></i> Đăng nhập với tư cách Quản trị viên
+                </a>
+            </div>
         </div>
     </section>
 
@@ -102,14 +107,35 @@
 </div>
 
 <script>
+    // 1. XỬ LÝ KHI NGƯỜI DÙNG BÌNH THƯỜNG BẤM "ĐĂNG NHẬP"
     document.getElementById('loginForm').addEventListener('submit', function(e) {
         e.preventDefault(); // Ngăn form reload lại trang
+        
         const email = document.querySelector('input[name="email"]').value;
+        const password = document.querySelector('input[name="password"]').value;
         
-        alert(`Đăng nhập thành công với tài khoản: ${email}\nChào mừng bạn trở lại với Fauget!`);
+        // Giả lập: Nếu người dùng lỡ nhập đúng tài khoản admin vào form
+        if(email === 'admin@fauget.com' && password === 'admin123') {
+            alert('Đăng nhập Quản trị viên thành công!');
+            window.location.href = 'admin/admin-orders.html';
+        } else {
+            // Còn lại thì là khách hàng bình thường
+            alert(`Đăng nhập thành công với tài khoản: ${email}\nChào mừng bạn trở lại với Fauget!`);
+            window.location.href = 'index.html'; // Về trang chủ mua hàng
+        }
+    });
+
+    // 2. XỬ LÝ KHI BẤM VÀO DÒNG "ĐĂNG NHẬP QUẢN TRỊ VIÊN"
+    document.getElementById('adminLoginBtn').addEventListener('click', function(e) {
+        e.preventDefault(); // Ngăn trình duyệt nhảy trang bậy bạ
         
-        // Chuyển hướng về trang chủ
-        window.location.href = 'index.html';
+        // Tự động điền tài khoản vào ô cho nó ngầu
+        document.querySelector('input[name="email"]').value = 'admin@fauget.com';
+        document.querySelector('input[name="password"]').value = 'admin123';
+        
+        // Thông báo và chuyển trang
+        alert('Đã xác thực quyền Quản trị viên!\nĐang chuyển hướng đến Trang Quản lý...');
+        window.location.href = 'admin/admin-orders.html'; // Chuyển sang trang Admin
     });
 </script>
 <script src="assets/js/app.js"></script>
