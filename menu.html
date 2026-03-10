@@ -25,7 +25,7 @@
             <a href="index.html"><img src="assets/images/fauget.png" alt="Fauget Logo"></a>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm...">
+            <input type="text" id="searchInput" onkeyup="searchFood()" placeholder="Tìm kiếm món ăn...">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div class="auth-buttons">
@@ -70,7 +70,7 @@
     <section class="menu-grid" id="product-list">
         
         <div class="product-card" data-category="burger">
-            <img src="assets/images/cheese-burger.png" alt="Cheese Burger">
+            <img src="assets/images/cheese-burger.png" alt="Cheese Burger" onclick="openModal('b1')" style="cursor: pointer;">
             <h3>Cheese Burger</h3>
             <p>Burger phô mai kép với thịt bò juicy và hành phi giòn</p>
             <div class="price-row">
@@ -80,7 +80,7 @@
         </div>
         
         <div class="product-card" data-category="burger">
-            <img src="assets/images/classic-burger.png" alt="Classic Burger">
+            <img src="assets/images/classic-burger.png" alt="Classic Burger" onclick="openModal('b2')" style="cursor: pointer;">
             <h3>Classic Burger</h3>
             <p>Burger bò Úc với phô mai cheddar, rau xà lách tươi, cà chua và sốt đặc biệt</p>
             <div class="price-row">
@@ -90,7 +90,7 @@
         </div>
 
         <div class="product-card" data-category="burger">
-            <img src="assets/images/chicken-burger.png" alt="Chicken Burger">
+            <img src="assets/images/chicken-burger.png" alt="Chicken Burger" onclick="openModal('b3')" style="cursor: pointer;">
             <h3>Chicken Burger</h3>
             <p>Burger gà giòn với sốt mayo tự làm</p>
             <div class="price-row">
@@ -100,7 +100,7 @@
         </div>
 
         <div class="product-card" data-category="pizza">
-            <img src="assets/images/pepperoni-pizza.png" alt="Pepperoni Pizza">
+            <img src="assets/images/pepperoni-pizza.png" alt="Pepperoni Pizza" onclick="openModal('p1')" style="cursor: pointer;">
             <h3>Pepperoni Pizza</h3>
             <p>Pizza pepperoni truyền thống với phô mai mozzarella</p>
             <div class="price-row">
@@ -110,7 +110,7 @@
         </div>
 
         <div class="product-card" data-category="pizza">
-            <img src="assets/images/hawaiian-pizza.png" alt="Hawaiian Pizza">
+            <img src="assets/images/hawaiian-pizza.png" alt="Hawaiian Pizza" onclick="openModal('p2')" style="cursor: pointer;">
             <h3>Hawaiian Pizza</h3>
             <p>Pizza thơm dứa với giăm bông và phô mai</p>
             <div class="price-row">
@@ -120,7 +120,7 @@
         </div>
 
         <div class="product-card" data-category="pizza">
-            <img src="assets/images/veggie-pizza.png" alt="Veggie Pizza">
+            <img src="assets/images/veggie-pizza.png" alt="Veggie Pizza" onclick="openModal('p3')" style="cursor: pointer;">
             <h3>Veggie Pizza</h3>
             <p>Pizza rau củ với ớt chuông, nấm và olive</p>
             <div class="price-row">
@@ -130,7 +130,7 @@
         </div>
 
         <div class="product-card" data-category="chicken">
-            <img src="assets/images/ga-2-mieng.png" alt="Gà Rán (2 miếng)">
+            <img src="assets/images/ga-2-mieng.png" alt="Gà Rán (2 miếng)" onclick="openModal('c1')" style="cursor: pointer;">
             <h3>Gà Rán (2 miếng)</h3>
             <p>2 miếng gà rán giòn vàng thơm ngon</p>
             <div class="price-row">
@@ -140,7 +140,7 @@
         </div>
 
         <div class="product-card" data-category="chicken">
-            <img src="assets/images/ga-4-mieng.png" alt="Gà Rán (4 miếng)">
+            <img src="assets/images/ga-4-mieng.png" alt="Gà Rán (4 miếng)" onclick="openModal('c2')" style="cursor: pointer;">
             <h3>Gà Rán (4 miếng)</h3>
             <p>4 miếng gà rán, perfect để share</p>
             <div class="price-row">
@@ -150,7 +150,7 @@
         </div>
 
         <div class="product-card" data-category="chicken">
-            <img src="assets/images/wings-bbq.png" alt="Wings BBQ (6 miếng)">
+            <img src="assets/images/wings-bbq.png" alt="Wings BBQ (6 miếng)" onclick="openModal('c3')" style="cursor: pointer;">
             <h3>Wings BBQ (6 miếng)</h3>
             <p>Cánh gà nướng BBQ vị đậm đà</p>
             <div class="price-row">
@@ -160,7 +160,7 @@
         </div>
 
         <div class="product-card" data-category="drink">
-            <img src="assets/images/cocacola.png" alt="Coca Cola">
+            <img src="assets/images/cocacola.png" alt="Coca Cola" onclick="openModal('d1')" style="cursor: pointer;">
             <h3>Coca Cola</h3>
             <p>Coca Cola lon mát lạnh</p>
             <div class="price-row">
@@ -170,7 +170,7 @@
         </div>
 
         <div class="product-card" data-category="drink">
-            <img src="assets/images/pepsi.png" alt="Pepsi">
+            <img src="assets/images/pepsi.png" alt="Pepsi" onclick="openModal('d2')" style="cursor: pointer;">
             <h3>Pepsi</h3>
             <p>Pepsi lon mát lạnh</p>
             <div class="price-row">
@@ -180,7 +180,7 @@
         </div>
 
         <div class="product-card" data-category="drink">
-            <img src="assets/images/tra-dao.png" alt="Trà Đào">
+            <img src="assets/images/tra-dao.png" alt="Trà Đào" onclick="openModal('d3')" style="cursor: pointer;">
             <h3>Trà Đào</h3>
             <p>Trà đào cam sả vị thanh mát</p>
             <div class="price-row">
@@ -190,7 +190,7 @@
         </div>
 
         <div class="product-card" data-category="snack">
-            <img src="assets/images/khoai-tay-chien.png" alt="Khoai Tây Chiên">
+            <img src="assets/images/khoai-tay-chien.png" alt="Khoai Tây Chiên" onclick="openModal('s1')" style="cursor: pointer;">
             <h3>Khoai Tây Chiên</h3>
             <p>Khoai tây chiên giòn rụm</p>
             <div class="price-row">
@@ -200,7 +200,7 @@
         </div>
 
         <div class="product-card" data-category="snack">
-            <img src="assets/images/onion-rings.png" alt="Onion Rings">
+            <img src="assets/images/onion-rings.png" alt="Onion Rings" onclick="openModal('s2')" style="cursor: pointer;">
             <h3>Onion Rings</h3>
             <p>Hành tây chiên giòn với sốt mayo</p>
             <div class="price-row">
@@ -210,7 +210,7 @@
         </div>
 
         <div class="product-card" data-category="snack">
-            <img src="assets/images/salad-caesar.png" alt="Salad Caesar">
+            <img src="assets/images/salad-caesar.png" alt="Salad Caesar" onclick="openModal('s3')" style="cursor: pointer;">
             <h3>Salad Caesar</h3>
             <p>Salad Caesar với rau xanh và phô mai mozzarella</p>
             <div class="price-row">
@@ -249,12 +249,9 @@
 
 <script>
     const filterBtns = document.querySelectorAll('.filter-btn');
-    // Chỗ đổi tên thứ 1: đổi products thành productCards
     const productCards = document.querySelectorAll('.product-card');
-
     // 1. Tạo một hàm riêng để xử lý việc lọc sản phẩm
     function filterProducts(filterValue) {
-        // Cập nhật màu sắc cho nút đang được chọn
         filterBtns.forEach(btn => {
             btn.classList.remove('active');
             if(btn.getAttribute('data-filter') === filterValue) {
@@ -262,7 +259,6 @@
             }
         });
 
-        // Chỗ đổi tên thứ 2: đổi products thành productCards
         productCards.forEach(product => {
             if (filterValue === 'all') {
                 product.classList.remove('hidden');
@@ -276,7 +272,6 @@
         });
     }
 
-    // 2. Lắng nghe sự kiện khi người dùng click trực tiếp vào các nút ở trang Menu
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const filterValue = btn.getAttribute('data-filter');
@@ -296,6 +291,24 @@
         }
     });
 </script>
+<div id="foodModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        
+        <div class="modal-body">
+            <div class="modal-img">
+                <img id="modalImage" src="" alt="Hình món ăn">
+            </div>
+            <div class="modal-info">
+                <h2 id="modalTitle">Tên món ăn</h2>
+                <p class="modal-price" id="modalPrice">0đ</p>
+                <p class="modal-desc" id="modalDesc">Mô tả chi tiết sẽ hiện ở đây...</p>
+                
+                <button class="btn-order-now" id="modalAddToCart">Thêm vào giỏ</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="assets/js/app.js"></script>
 </body>
 </html>

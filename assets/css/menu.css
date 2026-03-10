@@ -76,4 +76,70 @@ ul { list-style: none; }
     .footer-content { grid-template-columns: 1fr; text-align: center; }
     .footer-contact ul li { justify-content: center; }
 }
-  
+/* --- CSS CHO BẢNG CHI TIẾT (MODAL) --- */
+.modal-overlay {
+    display: none; /* Mặc định là giấu đi */
+    position: fixed;
+    z-index: 9999; /* Đẩy lên lớp trên cùng, che hết mọi thứ */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Nền đen mờ 60% */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 650px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: zoomIn 0.3s ease-out; /* Hiệu ứng nảy nhẹ khi mở */
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close-btn:hover { color: var(--btn-red); }
+
+.modal-body { display: flex; gap: 25px; margin-top: 10px; }
+.modal-img img { width: 250px; height: 250px; object-fit: cover; border-radius: 15px; }
+.modal-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.modal-info h2 { color: var(--text-dark); margin-bottom: 10px; font-weight: 900; font-size: 28px; }
+.modal-price { color: var(--primary-color); font-size: 24px; font-weight: bold; margin-bottom: 15px; }
+.modal-desc { color: #666; line-height: 1.6; margin-bottom: 25px; font-size: 15px; }
+
+.btn-order-now {
+    background-color: var(--btn-red);
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    width: 100%; 
+    box-shadow: 0 4px 10px rgba(248, 91, 107, 0.3);
+}
+.btn-order-now:hover {
+    background-color: #e04a4a; 
+    transform: translateY(-2px); 
+}

@@ -59,13 +59,13 @@ ul { list-style: none; }
     margin: 0 20px; 
 }
 
-.search-bar input { 
-    width: 100%; 
-    padding: 10px 40px 10px 15px; 
-    border-radius: 20px; 
-    border: none; 
-    background-color: var(--bg-light-green); 
-    outline: none; 
+.search-bar input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #e5ffcc;
+    outline: none;
 }
 
 .search-bar i { 

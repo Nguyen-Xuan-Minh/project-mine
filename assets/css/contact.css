@@ -21,7 +21,14 @@ ul { list-style: none; }
 .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
 .logo img { height: 60px; }
 .search-bar { flex: 1; max-width: 400px; position: relative; margin: 0 20px; }
-.search-bar input { width: 100%; padding: 10px 40px 10px 15px; border-radius: 20px; border: none; background-color: var(--bg-light-green); outline: none; font-size: 14px; }
+.search-bar input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #e5ffcc;
+    outline: none;
+}
 .search-bar i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #555; cursor: pointer; }
 .auth-buttons { display: flex; flex-direction: column; align-items: center; font-size: 14px; font-weight: 700; }
 .auth-buttons .btn-register { background-color: var(--primary-color); padding: 5px 15px; border-radius: 15px; margin-bottom: 5px; color: #000; }

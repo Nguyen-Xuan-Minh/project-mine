@@ -26,7 +26,7 @@ const products = [
     { id: 'cb3', name: 'Combo Pizza', price: 145000, img: 'assets/images/combo-pizza.png' }
 ];
 
-// 2. CÁC HÀM QUẢN LÝ GIỎ HÀNG (Lưu vào Local Storage)
+// 2. CÁC HÀM QUẢN LÝ GIỎ HÀNG 
 function getCart() {
     // Lấy giỏ hàng từ bộ nhớ trình duyệt, nếu chưa có thì trả về mảng rỗng []
     const cart = localStorage.getItem('fauget_cart');
@@ -38,7 +38,7 @@ function saveCart(cart) {
     localStorage.setItem('fauget_cart', JSON.stringify(cart));
 }
 
-// 3. HÀM THÊM MÓN VÀO GIỎ HÀNG (Được gọi khi bấm nút + ở Menu)
+// 3. HÀM THÊM MÓN VÀO GIỎ HÀNG 
 function addToCart(productId) {
     // Tìm món ăn trong mảng products dựa vào ID
     const product = products.find(p => p.id === productId);
@@ -96,18 +96,16 @@ function formatPrice(price) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "đ";
 }
 
-// Hàm hiển thị thông báo góc màn hình (Toast Message)
+// Hàm hiển thị thông báo góc màn hình 
 function showToast(message) {
-    // Tạo thẻ div chứa thông báo
     const toast = document.createElement('div');
     toast.textContent = message;
     
-    // Thêm CSS trực tiếp cho toast (để bạn không cần viết thêm CSS ngoài)
     Object.assign(toast.style, {
         position: 'fixed',
         bottom: '20px',
         right: '20px',
-        backgroundColor: '#4caf50', // Màu xanh lá báo thành công
+        backgroundColor: '#4caf50', 
         color: 'white',
         padding: '15px 25px',
         borderRadius: '8px',
@@ -131,7 +129,7 @@ function showToast(message) {
     setTimeout(() => {
         toast.style.transform = 'translateY(100px)';
         toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 300); // Xóa thẻ khỏi DOM
+        setTimeout(() => toast.remove(), 300); 
     }, 2500);
 }
 
@@ -140,3 +138,55 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tự động cập nhật số lượng giỏ hàng trên Header mỗi khi chuyển trang
     updateCartCount();
 });
+
+// --- CHỨC NĂNG TÌM KIẾM MÓN ĂN (LIVE SEARCH) ---
+function searchFood() {
+    // 1. Lấy từ khóa khách vừa gõ và chuyển hết thành chữ thường 
+    let keyword = document.getElementById('searchInput').value.toLowerCase();
+    
+    // 2. Gom tất cả các thẻ chứa món ăn trên trang vào một danh sách
+    let productCards = document.querySelectorAll('.product-card');
+
+    // 3. Đi kiểm tra từng món một
+    productCards.forEach(card => {
+        // Lấy cái tên món ăn ở trong thẻ <h3>
+        let foodName = card.querySelector('h3').innerText.toLowerCase();
+        
+        // Nếu tên món có  từ khóa khách gõ -> Hiện lên
+        if (foodName.includes(keyword)) {
+            card.style.display = 'block'; 
+        } 
+        // Nếu không chứa -> Giấu nó đi
+        else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// --- CHỨC NĂNG MỞ BẢNG CHI TIẾT MÓN ĂN ---
+function openModal(id) {
+    let food = products.find(item => item.id === id);
+    if (food) {
+        // Gán dữ liệu
+        document.getElementById('modalTitle').innerText = food.name;
+        document.getElementById('modalPrice').innerText = food.price.toLocaleString('vi-VN') + 'đ';
+        document.getElementById('modalImage').src = food.img; 
+        
+        let moTa = food.desc ? food.desc : "Được chế biến từ nguyên liệu tươi sạch 100%, công thức độc quyền từ Fauget mang đến hương vị bùng nổ. Ăn là ghiền, mua là mê!";
+        document.getElementById('modalDesc').innerText = moTa;
+        
+        document.getElementById('modalAddToCart').setAttribute('onclick', `addToCart('${food.id}')`);
+        document.getElementById('foodModal').style.display = 'flex';
+    }
+}
+// Hàm đóng bảng
+function closeModal() {
+    document.getElementById('foodModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    let modal = document.getElementById('foodModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
