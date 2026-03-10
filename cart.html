@@ -89,10 +89,9 @@
 
 <script>
     function renderCartPage() {
-        const cart = getCart(); // Hàm lấy từ app.js
+        const cart = getCart();
         const container = document.getElementById('cart-layout');
 
-        // NẾU GIỎ HÀNG TRỐNG
         if (cart.length === 0) {
             container.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 50px 20px;">
@@ -105,7 +104,6 @@
             return;
         }
 
-        // NẾU CÓ MÓN ĂN
         let itemsHtml = '<div class="cart-items-container">';
         let total = 0;
 
@@ -113,7 +111,6 @@
             let itemTotal = item.price * item.quantity;
             total += itemTotal;
             
-            // Render HTML khớp chính xác với class trong CSS của bạn
             itemsHtml += `
                 <div class="cart-item">
                     <div class="item-info">
@@ -135,7 +132,6 @@
         });
         itemsHtml += '</div>';
 
-        // Render khung thanh toán (Cart Summary) khớp với CSS
         let summaryHtml = `
             <div class="cart-summary">
                 <h3>TÓM TẮT ĐƠN HÀNG</h3>
@@ -156,12 +152,10 @@
             </div>
         `;
 
-        // Gắn cả 2 phần vào layout
         container.innerHTML = itemsHtml + summaryHtml;
-        updateCartCount(); // Cập nhật số lượng đỏ trên nav
+        updateCartCount(); 
     }
 
-    // Các hàm phụ trợ
     function changeCartQty(id, delta) {
         let cart = getCart();
         let item = cart.find(c => c.id === id);
@@ -189,7 +183,6 @@
         window.location.href = "index.html"; 
     }
 
-    // Chạy khi load trang
     document.addEventListener('DOMContentLoaded', renderCartPage);
 </script>
 

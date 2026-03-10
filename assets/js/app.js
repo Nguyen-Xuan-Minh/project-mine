@@ -28,19 +28,16 @@ const products = [
 
 // 2. CÁC HÀM QUẢN LÝ GIỎ HÀNG 
 function getCart() {
-    // Lấy giỏ hàng từ bộ nhớ trình duyệt, nếu chưa có thì trả về mảng rỗng []
     const cart = localStorage.getItem('fauget_cart');
     return cart ? JSON.parse(cart) : [];
 }
 
 function saveCart(cart) {
-    // Lưu giỏ hàng vào bộ nhớ trình duyệt
     localStorage.setItem('fauget_cart', JSON.stringify(cart));
 }
 
 // 3. HÀM THÊM MÓN VÀO GIỎ HÀNG 
 function addToCart(productId) {
-    // Tìm món ăn trong mảng products dựa vào ID
     const product = products.find(p => p.id === productId);
     if (!product) {
         console.error("Không tìm thấy món ăn với ID:", productId);
@@ -49,14 +46,11 @@ function addToCart(productId) {
 
     let cart = getCart();
     
-    // Kiểm tra xem món này đã có trong giỏ chưa
     let existingItem = cart.find(item => item.id === productId);
     
     if (existingItem) {
-        // Nếu có rồi thì chỉ tăng số lượng
         existingItem.quantity += 1;
     } else {
-        // Nếu chưa có thì thêm mới vào giỏ với số lượng 1
         cart.push({
             id: product.id,
             name: product.name,
@@ -66,7 +60,6 @@ function addToCart(productId) {
         });
     }
 
-    // Lưu lại và cập nhật giao diện
     saveCart(cart);
     updateCartCount();
     showToast(`Đã thêm ${product.name} vào giỏ hàng!`);
@@ -78,7 +71,6 @@ function updateCartCount() {
     const cartBadge = document.getElementById('cart-badge');
     
     if (cartBadge) {
-        // Tính tổng số lượng các món trong giỏ
         const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
         
         if (totalItems > 0) {
@@ -139,24 +131,19 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 });
 
-// --- CHỨC NĂNG TÌM KIẾM MÓN ĂN (LIVE SEARCH) ---
+// --- CHỨC NĂNG TÌM KIẾM MÓN ĂN ---
 function searchFood() {
-    // 1. Lấy từ khóa khách vừa gõ và chuyển hết thành chữ thường 
     let keyword = document.getElementById('searchInput').value.toLowerCase();
     
-    // 2. Gom tất cả các thẻ chứa món ăn trên trang vào một danh sách
     let productCards = document.querySelectorAll('.product-card');
 
-    // 3. Đi kiểm tra từng món một
     productCards.forEach(card => {
-        // Lấy cái tên món ăn ở trong thẻ <h3>
         let foodName = card.querySelector('h3').innerText.toLowerCase();
         
-        // Nếu tên món có  từ khóa khách gõ -> Hiện lên
         if (foodName.includes(keyword)) {
             card.style.display = 'block'; 
         } 
-        // Nếu không chứa -> Giấu nó đi
+        
         else {
             card.style.display = 'none';
         }
@@ -167,7 +154,6 @@ function searchFood() {
 function openModal(id) {
     let food = products.find(item => item.id === id);
     if (food) {
-        // Gán dữ liệu
         document.getElementById('modalTitle').innerText = food.name;
         document.getElementById('modalPrice').innerText = food.price.toLocaleString('vi-VN') + 'đ';
         document.getElementById('modalImage').src = food.img; 

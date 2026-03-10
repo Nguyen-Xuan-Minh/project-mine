@@ -30,7 +30,6 @@ ul { list-style: none; }
 .navbar ul li a:hover { color: #fff; }
 .cart-icon { position: absolute; right: 20px; font-size: 24px; cursor: pointer; }
 
-/* --- PHẦN LOGIN RIÊNG --- */
 .login-section {
     display: flex;
     justify-content: center;

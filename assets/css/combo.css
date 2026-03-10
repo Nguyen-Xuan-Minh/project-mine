@@ -230,7 +230,7 @@ ul { list-style: none; }
     transform: scale(1.1); 
 }
 
-/* --- BANNER PHÍA DƯỚI --- */
+/* --- BANNER DƯỚI --- */
 .promo-banner {
     background-image: url('../images/banner-combo.png'); 
     background-size: cover; 
@@ -246,7 +246,6 @@ ul { list-style: none; }
     border: 3px solid #a3d977;
     position: relative;
     overflow: hidden;
-    /* Thêm min-height để đảm bảo banner luôn hiện dù nội dung ít */
     min-height: 200px; 
 }
 

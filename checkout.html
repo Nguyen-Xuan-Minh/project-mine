@@ -153,15 +153,12 @@
 </div>
 
 <script>
-    // 1. TỰ ĐỘNG LẤY GIỎ HÀNG VÀ TÍNH TIỀN
     function loadCheckoutCart() {
-        // Lấy giỏ hàng nhờ hàm getCart() bên app.js
         const cart = getCart(); 
         const orderItemsContainer = document.getElementById('checkout-order-items');
         const subtotalElement = document.getElementById('checkout-subtotal');
         const totalElement = document.getElementById('checkout-total');
         
-        // Nếu giỏ hàng trống
         if (cart.length === 0) {
             orderItemsContainer.innerHTML = '<p style="text-align:center; color:#888;">Giỏ hàng của bạn đang trống!</p>';
             subtotalElement.textContent = '0đ';
@@ -170,9 +167,8 @@
         }
 
         let subtotal = 0;
-        orderItemsContainer.innerHTML = ''; // Xóa rỗng để chuẩn bị điền món mới
+        orderItemsContainer.innerHTML = ''; 
 
-        // Vòng lặp in từng món ra
         cart.forEach(item => {
             const itemTotal = item.price * item.quantity;
             subtotal += itemTotal;
@@ -186,19 +182,15 @@
             `;
         });
 
-        // Tính phí ship (Mặc định 15k) và Tổng cộng
         const shippingFee = 15000;
         const finalTotal = subtotal + shippingFee;
 
-        // In giá tiền ra màn hình
         subtotalElement.textContent = formatPrice(subtotal);
         totalElement.textContent = formatPrice(finalTotal);
     }
 
-    // Chạy hàm ngay khi tải trang xong
     window.addEventListener('DOMContentLoaded', loadCheckoutCart);
-
-    // 2. XỬ LÝ SỰ KIỆN KHI BẤM NÚT ĐẶT HÀNG
+    
     document.getElementById('checkoutForm').addEventListener('submit', function(e) {
         e.preventDefault(); 
         
@@ -214,11 +206,10 @@
 
         if (paymentMethod === 'BANKING') {
             alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận.\nVui lòng quét mã QR chuyển khoản ở bước tiếp theo.`);
-            // Sau này làm trang QR thì đổi link ở đây
         } else {
             alert(`Cảm ơn ${name}! Đặt hàng thành công.\nChúng tôi sẽ gọi xác nhận và giao hàng cho bạn.`);
             
-            // QUAN TRỌNG: Xóa sạch giỏ hàng sau khi đặt mua xong
+            // Xóa sạch giỏ hàng sau khi đặt mua xong
             localStorage.removeItem('fauget_cart');
             
             window.location.href = 'index.html'; 

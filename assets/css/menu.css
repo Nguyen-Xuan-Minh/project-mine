@@ -30,7 +30,6 @@ ul { list-style: none; }
 .navbar ul li a:hover { color: #fff; }
 .cart-icon { position: absolute; right: 20px; font-size: 24px; cursor: pointer; }
 
-/* --- PHẦN MENU RIÊNG --- */
 .menu-header-container { display: flex; align-items: center; justify-content: center; gap: 15px; padding: 30px 20px 10px; }
 .menu-header-container i { font-size: 35px; color: #e67e22; }
 .menu-header-container h2 { font-size: 24px; font-weight: 800; text-transform: uppercase; }

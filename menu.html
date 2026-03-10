@@ -250,7 +250,7 @@
 <script>
     const filterBtns = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
-    // 1. Tạo một hàm riêng để xử lý việc lọc sản phẩm
+
     function filterProducts(filterValue) {
         filterBtns.forEach(btn => {
             btn.classList.remove('active');
@@ -279,13 +279,10 @@
         });
     });
 
-    // 3. TỰ ĐỘNG LỌC KHI TỪ TRANG CHỦ CHUYỂN SANG
     window.addEventListener('DOMContentLoaded', () => {
-        // Lấy thông số từ thanh địa chỉ URL (ví dụ: ?category=pizza)
         const urlParams = new URLSearchParams(window.location.search);
         const categoryFromUrl = urlParams.get('category');
         
-        // Nếu có thông số truyền sang, lập tức gọi hàm lọc
         if (categoryFromUrl) {
             filterProducts(categoryFromUrl);
         }
